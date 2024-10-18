@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Correo Electrónico</title>
+</head>
+<body>
+    <form id="miFormulario" onsubmit="guardarCorreo(event)">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" required>
+        <button type="submit">Guardar</button>
+    </form>
+    
+    <div id="correoGuardado" style="margin-top: 10px;"></div>
+    <button id="btnEliminar" style="display:none;" onclick="eliminarCorreo()">Eliminar Correo</button>
+
+    <script>
+        function guardarCorreo(event) {
+            event.preventDefault();
+            let correo = document.getElementById("correo").value;
+            localStorage.setItem("correo", correo);
+            mostrarCorreo();
+        }
+
+        function mostrarCorreo() {
+            let correoGuardado = localStorage.getItem("correo");
+            if (correoGuardado) {
+                document.getElementById("correoGuardado").textContent = "Correo guardado: " + correoGuardado;
+                document.getElementById("btnEliminar").style.display = "block";
+            }
+        }
+
+        function eliminarCorreo() {
+            localStorage.removeItem("correo");
+            document.getElementById("correoGuardado").textContent = "";
+            document.getElementById("btnEliminar").style.display = "none";
+        }
+
+        window.onload = mostrarCorreo;
+    </script>
+</body>
+</html>

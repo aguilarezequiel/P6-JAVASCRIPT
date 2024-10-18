@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista con Eventos</title>
+</head>
+<body>
+    <ul id="miLista">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+    </ul>
+
+    <script>
+        let lista = document.getElementById("miLista");
+        let items = lista.getElementsByTagName("li");
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].addEventListener("click", function() {
+                console.log(this.textContent);
+            });
+        }
+    </script>
+</body>
+</html>

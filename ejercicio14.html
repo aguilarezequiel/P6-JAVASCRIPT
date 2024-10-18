@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Simple</title>
+</head>
+<body>
+    <form id="miFormulario">
+        <label for="texto">Ingresa un texto:</label>
+        <input type="text" id="texto" required>
+        <button type="button" onclick="mostrarAlerta()">Mostrar Alerta</button>
+    </form>
+
+    <script>
+        function mostrarAlerta() {
+            let valorTexto = document.getElementById("texto").value;
+            alert("El valor ingresado es: " + valorTexto);
+        }
+    </script>
+</body>
+</html>
